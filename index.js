@@ -1,6 +1,7 @@
 // Packages needed for this application
 const inquirer = require('inquirer')
-const generateSvg = require('./lib/shapes')
+const generateSvg = require('./lib/generateSvg')
+const generateHtml = require('./lib/generateHtml')
 const fs = require('fs')
 // Create an array of questions to store the users input
 const questions = [
@@ -42,21 +43,32 @@ const questions = [
 ]
 
 // Create a function to write SVG file
-function writeToFile(fileName, data) {
+const writeSvgFile = (fileName, data) => {
   fs.writeFile(fileName, data, (err) => {
     err
       ? console.error(err)
       : console.log('\x1b[32m Generated logo.svg \x1b[0m')
   })
 }
-
-//Create a function to initialize app
-function init() {
-  inquirer.prompt(questions).then((answers) => {
-    const data = JSON.stringify(answers)
-    writeToFile('examples/logo.svg', generateSvg(JSON.parse(data)))
+// Create a function to write HTML file
+const writeHtmlFile = (fileName, data) => {
+  fs.writeFile(fileName, data, (err) => {
+    err
+      ? console.error(err)
+      : console.log('\x1b[32m Generated logo.html \x1b[0m')
   })
 }
 
+//Create a function to initialize app
+const init = () => {
+  inquirer.prompt(questions).then((answers) => {
+    const data = JSON.stringify(answers)
+    writeSvgFile('examples/logo.svg', generateSvg(JSON.parse(data)))
+    writeHtmlFile(
+      'examples/logo.html',
+      generateHtml(generateSvg(JSON.parse(data)))
+    )
+  })
+}
 // Function call to initialize app
 init()
