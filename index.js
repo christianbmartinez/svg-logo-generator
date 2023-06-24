@@ -53,11 +53,8 @@ function writeToFile(fileName, data) {
 //Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((answers) => {
-    // First we store our data into a json string and parse it after
     const data = JSON.stringify(answers)
-    // We are calling writeToFile and passing in our arguments.
-    // Arguments being the file path, and our parsed markdown data.
-    writeToFile('examples/logo.svg', generateSvg(data))
+    writeToFile('examples/logo.svg', generateSvg(JSON.parse(data)))
   })
 }
 
