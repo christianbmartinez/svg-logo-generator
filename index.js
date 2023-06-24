@@ -1,6 +1,6 @@
 // Packages needed for this application
 const inquirer = require('inquirer')
-const generateSvg = require('./lib/generateSvg')
+const { generateSvg } = require('./lib/generateSvg')
 const generateHtml = require('./lib/generateHtml')
 const fs = require('fs')
 // Create an array of questions to store the users input
