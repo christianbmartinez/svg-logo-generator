@@ -22,6 +22,7 @@ const questions = [
     message: 'What do you want the text of your logo to be?',
     when: (answers) => answers.text.length > 3,
   },
+  // With colors, I don't believe we can use a capitalized first letter, so let's get rid of that.
   {
     type: 'input',
     name: 'textColor',
@@ -51,6 +52,7 @@ const writeSvgFile = (fileName, data) => {
   })
 }
 // Create a function to write HTML file
+// Went above and beyond here. Writing an html file so I can see exactly how the svg is looking in the browser.
 const writeHtmlFile = (fileName, data) => {
   fs.writeFile(fileName, data, (err) => {
     err
