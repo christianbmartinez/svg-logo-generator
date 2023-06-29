@@ -44,4 +44,4 @@ A node js console application for generating svg logos
 
   Feel free to [email](mailto:hello@christianbmartinez.com?subject=[GitHub]%20Svg%20Generator) me with any questions or view [my github profile](https://github.com/christianbmartinez)
 
-  Thank you :)
+View submission video [here](https://drive.google.com/file/d/1Tg1iBDdUqCIz06HrNIAeVbb3j-26K3-V/view)
